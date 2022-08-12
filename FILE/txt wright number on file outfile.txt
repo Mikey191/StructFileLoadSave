@@ -1,0 +1,32 @@
+//Пример форматированной записи в файл
+//
+//#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+using namespace std;
+
+
+int main()
+{
+	const int n = 5;
+	int arr[n];
+	FILE* out;
+	const char* path = "outfile.txt";
+	for (size_t i = 0; i < n; i++)
+	{
+		arr[i] = i + 5;
+	}
+	if ((fopen_s(&out, path, "w")) != NULL)
+		cout << "The file could not be created";
+	else
+	{
+		for (size_t i = 0; i < n; i++)
+		{
+			fprintf(out, "%1d", arr[i]);
+			fprintf(out, "\n");
+		}
+		fclose(out);//явное закрытие файла
+	}
+
+
+	return 0;
+}

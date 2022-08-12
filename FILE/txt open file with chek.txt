@@ -1,0 +1,18 @@
+//
+//
+#define _CRT_SECURE_NO_WARNINGS //обязательная строчка если используешь fopen
+#include <iostream>
+using namespace std;
+
+//Проверка ситуации а был ли успешно открыт файл
+
+
+int main()
+{
+	FILE* out;
+	if ((out = fopen("outfile2.txt", "w")) == NULL) 
+		cout << "The file could not be created!";
+	else
+		cout << "OK!";
+	return 0;
+}

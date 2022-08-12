@@ -1,0 +1,8 @@
+void savedata_bin(people* arr, int& size)
+{
+	FILE* file;
+	const char* filename = "FirstFile.txt";
+	fopen_s(&file, filename, "wb");
+	fwrite(&arr[0], sizeof(people), size, file);
+	fclose(file);
+}

@@ -1,0 +1,26 @@
+//Операция чтения данных изменяет внутренний файловый указатель
+//и перемещает его на следующее значения, которое будет прочитанно
+//
+#include <iostream>
+using namespace std;
+
+
+int main()
+{
+	float a;
+	FILE* in;
+	const char* path = "infile.txt";
+
+	if (fopen_s(&in, path, "r") != NULL)
+		cout << "The file cannot be opened";
+	else
+	{
+		while (!feof(in))
+		{
+			fscanf_s(in, "%f", &a);
+			cout << a << " ";
+		}
+	}
+
+	return 0;
+}

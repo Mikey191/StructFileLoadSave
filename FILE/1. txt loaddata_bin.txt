@@ -1,0 +1,20 @@
+void loaddata_bin(people* arr, int& size)
+{
+	FILE* file;
+	const char* filename = "FirstFile.txt";
+	struct _finddata_t myfileinfo;
+	intptr_t done = _findfirst(filename, &myfileinfo);
+	if (done == -1)
+	{
+		fopen_s(&file, filename, "wb");
+		fclose(file);
+	}
+	fopen_s(&file, filename, "rb");
+	while (!feof(file))
+	{
+		fread(&arr[size], sizeof(people), 1, file);
+		size++;
+	}
+	fclose(file);
+	size--;
+}

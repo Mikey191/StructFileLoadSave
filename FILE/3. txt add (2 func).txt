@@ -1,0 +1,18 @@
+people add()
+{
+	people temp;
+	cout << "\tEnter info:" << endl;
+	cout << "Enter Name: ";
+	cin >> temp.name;
+	cout << "Enter City: ";
+	cin >> temp.city;
+	cout << "Enter Year: ";
+	cin >> temp.year;
+	return temp;
+}
+
+void addPeople(people* arr, int& size)
+{
+	arr[size] = add();
+	size++;
+}

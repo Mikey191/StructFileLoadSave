@@ -1,0 +1,12 @@
+void showAllPeople(people* arr, int& size)
+{
+	cout << "\tList people" << endl;
+	for (size_t i = 0; i < size; i++)
+	{
+		cout << "Name : " << arr[i].name << "\t";
+		cout << "Year : " << arr[i].year<< "\t";
+		cout << "City : " << arr[i].city << "\t";
+		cout << endl;
+	}
+	system("pause");
+}

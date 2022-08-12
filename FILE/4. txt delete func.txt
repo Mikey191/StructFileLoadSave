@@ -1,0 +1,21 @@
+void deletePeopleName(people* arr, int& size)
+{
+	people temp;
+	int k = -1;
+	cout << "Enter Name people for delete: ";
+	cin >> temp.name;
+	for (size_t i = 0; i < size; i++)
+	{
+		if (strcmp(arr[i].name, temp.name) == 0)
+		{
+			k = i;
+		}
+	}
+	if (k >= 0)
+	{
+		for (size_t i = k; i < size - 1; i++)
+		{
+			arr[i] = arr[i + 1];
+		}size--;
+	}
+}

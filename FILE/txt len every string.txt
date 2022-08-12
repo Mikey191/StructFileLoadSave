@@ -1,0 +1,40 @@
+//Необходимо прочитать текстовый файл и определить длину каждой строки
+//
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	const char* path = "test.txt";
+	int c;
+	int len = 0, cnt = 0;
+	FILE* in;
+	if (fopen_s(&in, path, "r") != NULL)
+		cout << "Error";
+	else
+	{
+		while (!feof(in))
+		{
+			c = fgetc(in);
+			if (c == '\n')
+			{
+				cnt++;
+				cout << "String " << cnt << " lenght = " << len << "\n";
+				len = 0;
+			}
+			else
+			{
+				len++;
+			}
+		}
+		if (len)//последняя проверка необходима изза того, что в текстовых потоках
+				//последняя строка не заканчивается символом переводом строки и 
+				//программа не увидит ее иначе
+		{
+			cnt++;
+			cout << "String " << cnt << " lenght = " << len << "\n";
+		}
+	}
+
+	return 0;
+}

@@ -1,0 +1,3 @@
+product1 10 11.3
+product2 20 56.5
+product3 4 112
